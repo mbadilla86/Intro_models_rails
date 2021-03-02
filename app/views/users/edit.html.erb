@@ -1,0 +1,23 @@
+<h1>Crear Usuario!💀</h1>
+
+<% if @user.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@user.errors.count, "Error") %> prohibited this
+article from being saved:</h2>
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+  <form method= 'post' action="/users/create"> <!--Nosotros le damos la ruta a escoger -->
+  
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <label for="fname">Name:</label><br>
+  <input type="text" name="name" value="John"><br>
+  <label for="email">Email:</label><br>
+  <input type="email" name="email" value="doe@example.com"><br><br>
+  <input type="submit" value="Submit">
+</form>
